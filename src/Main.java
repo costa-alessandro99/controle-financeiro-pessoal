@@ -71,11 +71,11 @@ public class Main {
 
                     System.out.printf("Receitas: R$%.2f\n", management.getTotalReceitas());
                     System.out.printf("Despesas: R$%.2f\n", management.getTotalDespesas());
+                    System.out.printf("Saldo total disponível: R$%.2f\n", management.getSaldoTotal());
                     System.out.println();
 
                     management.showInvestimento();
                     System.out.println();
-                    System.out.printf("Saldo total disponível: R$%.2f\n", management.getSaldoTotal());
                     System.out.printf("Valor total investido: %.2f\n", management.getTotalInvestido());
 
                     break;
