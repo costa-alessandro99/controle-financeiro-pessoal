@@ -33,7 +33,7 @@ public class Main {
                     System.out.print("Digite o valor: R$");
                     double value = sc.nextDouble();
 
-                    System.out.println("Qual o tipo? ");
+                    System.out.println("Qual o tipo de transação? ");
                     System.out.println("1 - Receita");
                     System.out.println("2 - Despesa");
                     int type = sc.nextInt();
