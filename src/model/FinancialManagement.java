@@ -1,6 +1,5 @@
 package model;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +8,6 @@ public class FinancialManagement {
     private List<Transacao> transacoes = new ArrayList<>();
     private List<Investimento> investimentos = new ArrayList<>();
 
-    private static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
     public void addTransacao(Transacao transacao) {
         transacoes.add(transacao);
 
@@ -18,20 +15,6 @@ public class FinancialManagement {
 
     public void addInvestimento(Investimento investimento) {
         investimentos.add(investimento);
-    }
-
-    public void showTransacoes() {
-        for (Transacao transacao : transacoes) {
-            System.out.println(transacao);
-        }
-
-    }
-
-    public void showInvestimentos() {
-        for (Investimento investimento : investimentos) {
-            System.out.println(investimento);
-        }
-
     }
 
     public double getTotalReceitas() {
@@ -70,20 +53,47 @@ public class FinancialManagement {
         return total;
     }
 
-    public void showInvestimento() {
-        if (investimentos.isEmpty()) {
-            System.out.println("Nenhum investimento cadastrado.");
+    public void exibirTransacoes() {
+        if (transacoes.isEmpty()) {
+            System.out.println("*** Nenhuma transação cadastrada. ***");
             return;
         }
+        System.out.println();
+        System.out.println("----- TRANSAÇÕES: -----");
+        System.out.println();
+        for (Transacao transacao : transacoes) {
+            System.out.println(transacao);
+            System.out.println();
+        }
+    }
 
-        System.out.println("Investimentos: ");
+
+    public void exibirInvestimentos() {
+        if (investimentos.isEmpty()) {
+            System.out.println("*** Nenhum investimento cadastrado. ***");
+            return;
+        }
+        System.out.println();
+        System.out.println("----- INVESTIMENTOS: -----");
+        System.out.println();
         for (Investimento investimento : investimentos) {
-            System.out.printf("Nome: %s, valor investido: R$%.2f, data %s.",
-                    investimento.getNome(),
-                    investimento.getValorAplicado(),
-                    investimento.getData().format(DTF));
+
+            System.out.println(investimento);
+            System.out.println();
         }
 
     }
 
+    public double exibirPatrimonioTotal() {
+        return getSaldoTotal() + getTotalInvestido();
+
+    }
+
 }
+
+//            System.out.printf("Nome do investimento: %s,\nValor investido: R$%.2f,\nPrevisão em um ano: R$%.2f,\nData %s.",
+//            investimento.getNome(),
+//            investimento.getValorAplicado(),
+//            investimento.previsaoInvestimento(),
+//            investimento.getData().format(DTF));
+

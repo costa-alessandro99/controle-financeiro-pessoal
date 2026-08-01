@@ -10,10 +10,9 @@ public class Transacao {
     private TipoTransacao tipoTransacao;
 
 
-
     private static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public Transacao(){
+    public Transacao() {
     }
 
     public Transacao(double valor, LocalDate data, TipoTransacao tipoTransacao) {
@@ -50,8 +49,7 @@ public class Transacao {
 
     @Override
     public String toString() {
-        return "TRANSAÇÕES:\n" +
-                String.format("Valor: R$%.2f", valor) +
+        return String.format("Valor: R$%.2f", valor) +
                 ", data: " +
                 data.format(DTF) +
                 ", tipo de transação: " +

@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class Investimento {
 
     private String nome;
-    private double valorAplicado;
+    private double valorAplicado, porcentagem;
     private LocalDate data;
 
     private static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -14,9 +14,10 @@ public class Investimento {
     public Investimento() {
     }
 
-    public Investimento(String nome, double valorAplicado, LocalDate data) {
+    public Investimento(String nome, double valorAplicado, double porcentagem, LocalDate data) {
         this.nome = nome;
         this.valorAplicado = valorAplicado;
+        this.porcentagem = porcentagem;
         this.data = data;
     }
 
@@ -35,20 +36,36 @@ public class Investimento {
     public void setValorAplicado(double valorAplicado) {
         this.valorAplicado = valorAplicado;
     }
-    public LocalDate getData(){
+
+    public double getPorcentagem() {
+        return porcentagem;
+    }
+
+    public void setPorcentagem(double porcentagem) {
+        this.porcentagem = porcentagem;
+    }
+
+    public LocalDate getData() {
         return data;
     }
-    public void setData(LocalDate data){
+
+    public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public double previsaoInvestimento() {
+
+        double rendimento = valorAplicado * (porcentagem / 100);
+        return valorAplicado + rendimento;
+
     }
 
     @Override
     public String toString() {
-        return "INVESTIMENTOS:\n" +
-                "Nome do investimento: " +
-                nome +
+        return "Nome do investimento: " + nome +
                 String.format(", valor aplicado: R$%.2f", valorAplicado) +
-                ", data: " + data.format(DTF);
+                String.format(", previsão em um ano: R$%.2f", previsaoInvestimento()) +
+                ", data do aporte: " + data.format(DTF);
     }
 
 }
