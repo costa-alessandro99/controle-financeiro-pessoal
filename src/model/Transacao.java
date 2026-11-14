@@ -15,10 +15,10 @@ public class Transacao {
     public Transacao() {
     }
 
-    public Transacao(double valor, LocalDate data, TipoTransacao tipoTransacao) {
+    public Transacao(double valor, TipoTransacao tipoTransacao, LocalDate data) {
         this.valor = valor;
-        this.data = data;
         this.tipoTransacao = tipoTransacao;
+        this.data = data;
 
     }
 
@@ -30,14 +30,6 @@ public class Transacao {
         this.valor = valor;
     }
 
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
-
     public TipoTransacao getTipoTransacao() {
         return tipoTransacao;
     }
@@ -45,6 +37,14 @@ public class Transacao {
     public void setTipoTransacao(TipoTransacao tipoTransacao) {
         this.tipoTransacao = tipoTransacao;
 
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     @Override

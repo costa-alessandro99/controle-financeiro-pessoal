@@ -14,35 +14,21 @@ public class RegistroTransacao {
 
     }
 
-    public void registrarTransacao() {
-        TipoTransacao tipoTransacao;
-
+    public void registrarTransacao(TipoTransacao tipoTransacao) {
 
         System.out.print("Digite o valor: R$");
         double value = sc.nextDouble();
+        System.out.println();
 
-        System.out.println("Qual o tipo de transação? ");
-        System.out.println("1 - Receita");
-        System.out.println("2 - Despesa");
-        int opcao = sc.nextInt();
-
-        switch (opcao) {
-            case 1:
-                tipoTransacao = TipoTransacao.RECEITA;
-                break;
-
-            case 2:
-                tipoTransacao = TipoTransacao.DESPESA;
-                break;
-
-            default:
-                System.out.println("Opção inválida");
-                return;
-
-        }
-
-        Transacao transacao = new Transacao(value, LocalDate.now(), tipoTransacao);
+        Transacao transacao = new Transacao(value, tipoTransacao, LocalDate.now());
         management.addTransacao(transacao);
+
+    }
+
+    public void consultarTransacoes() {
+        management.exibirTransacoes();
+
+
     }
 
 

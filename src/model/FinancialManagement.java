@@ -1,9 +1,12 @@
 package model;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FinancialManagement {
+
+    private static final DateTimeFormatter DTF = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private List<Transacao> transacoes = new ArrayList<>();
     private List<Investimento> investimentos = new ArrayList<>();
@@ -56,15 +59,32 @@ public class FinancialManagement {
     public void exibirTransacoes() {
         if (transacoes.isEmpty()) {
             System.out.println("*** Nenhuma transação cadastrada. ***");
+            System.out.println();
             return;
         }
         System.out.println();
-        System.out.println("----- TRANSAÇÕES: -----");
+        System.out.println("=====| TRANSAÇÕES: |=====");
         System.out.println();
+        System.out.println("RECEITAS:");
+
         for (Transacao transacao : transacoes) {
-            System.out.println(transacao);
-            System.out.println();
+            if (transacao.getTipoTransacao() == TipoTransacao.RECEITA) {
+
+                System.out.printf("Valor: R$ %.2f - Data: %s\n", transacao.getValor(), transacao.getData().format(DTF));
+            }
         }
+
+        System.out.println();
+        System.out.println("DESPESAS:");
+        System.out.println();
+
+        for (Transacao transacao : transacoes) {
+            if (transacao.getTipoTransacao() == TipoTransacao.DESPESA) {
+
+                System.out.printf("Valor: R$ %.2f - Data: %s\n", transacao.getValor(), transacao.getData().format(DTF));
+            }
+        }
+        System.out.println();
     }
 
 
@@ -74,7 +94,7 @@ public class FinancialManagement {
             return;
         }
         System.out.println();
-        System.out.println("----- INVESTIMENTOS: -----");
+        System.out.println("=====| INVESTIMENTOS: |=====");
         System.out.println();
         for (Investimento investimento : investimentos) {
 

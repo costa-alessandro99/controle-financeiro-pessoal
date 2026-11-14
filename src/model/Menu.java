@@ -25,16 +25,19 @@ public class Menu {
             System.out.println("3 - Resumo Financeiro");
             System.out.println("4 - Sair");
 
+            System.out.print("\nEscolha: ");
+
             opcao = sc.nextInt();
+
             switch (opcao) {
 
                 case 1:
-                    registroTransacao.registrarTransacao();
+                    menuTransacoes();
                     break;
 
                 case 2:
 
-                    registroInvestimento.registrarInvestimento();
+                    menuInvestimentos();
                     break;
 
                 case 3:
@@ -44,6 +47,9 @@ public class Menu {
 
                 case 4:
                     System.out.println("Obrigado por utilizar o sistema.");
+                    System.out.print("Pressione ENTER para sair...");
+                    sc.nextLine();
+                    sc.nextLine();
                     break;
 
                 default:
@@ -52,6 +58,76 @@ public class Menu {
             }
 
         } while (opcao != 4);
+
+    }
+
+    private void menuTransacoes() {
+
+        int opcao;
+
+        do {
+            System.out.println("===== |TRANSAÇÕES |=====");
+            System.out.println("\nDigite a opção desejada: ");
+            System.out.println("1 - Registrar Transação");
+            System.out.println("2 - Registrar Despesa");
+            System.out.println("3 - Exibir informações");
+            System.out.println("0 - Retornar ao menu principal");
+
+            System.out.print("\nEscolha: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    registroTransacao.registrarTransacao(TipoTransacao.RECEITA);
+                    break;
+
+                case 2:
+                    registroTransacao.registrarTransacao(TipoTransacao.DESPESA);
+                    break;
+
+                case 3:
+                    registroTransacao.consultarTransacoes();
+
+                    break;
+
+                case 0:
+                    System.out.println("Retornando ao menu...");
+                    break;
+
+                default:
+                    System.out.println("Opção Inválida, tente novamente.");
+
+            }
+        } while (opcao != 0);
+
+    }
+
+    private void menuInvestimentos() {
+        int opcao;
+
+        do {
+            System.out.println("===== | INVESTIMENTOS |=====");
+            System.out.println("\nDigite a opção desejada: ");
+            System.out.println("1 - Registrar investimento");
+            System.out.println("0 - Retornar ao menu principal");
+
+            System.out.print("\nEscolha: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    registroInvestimento.registrarInvestimento();
+                    break;
+
+                case 0:
+                    System.out.println("Retornando ao menu...");
+                    break;
+
+                default:
+                    System.out.println("Opção Inválida, tente novamente.");
+
+            }
+        } while (opcao != 0);
 
     }
 }

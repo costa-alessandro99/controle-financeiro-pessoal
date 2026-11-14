@@ -16,16 +16,12 @@ public class RegistroInvestimento {
     public void registrarInvestimento() {
 
         sc.nextLine();
-        System.out.print("Digite o nome do investimento: ");
-        String nomeInvestimento = sc.nextLine().toUpperCase();
 
         System.out.print("Digite o valor do investimento: R$");
         double valorInvestimento = sc.nextDouble();
+        System.out.println();
 
-        System.out.println("Qual a porcentagem do investimento? (Caso não saiba, colocar 0). ");
-        double porcentagem = sc.nextDouble();
-
-        Investimento investimento = new Investimento(nomeInvestimento, valorInvestimento, porcentagem, LocalDate.now());
+        Investimento investimento = new Investimento(valorInvestimento, LocalDate.now());
         management.addInvestimento(investimento);
 
     }

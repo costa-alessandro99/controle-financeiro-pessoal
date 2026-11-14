@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ControleFinanceiroPessoal:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ControleFinanceiroPessoal_jar</output-path>
+    <root id="archive" name="ControleFinanceiroPessoal.jar">
+      <element id="module-output" name="ControleFinanceiroPessoal" />
+    </root>
+  </artifact>
+</component>

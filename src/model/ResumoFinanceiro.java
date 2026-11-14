@@ -18,7 +18,7 @@ public class ResumoFinanceiro {
 
         System.out.printf("Saldo disponível: R$%.2f\n", management.getSaldoTotal());
         System.out.printf("Valor total investido: R$%.2f\n", management.getTotalInvestido());
-        System.out.printf("Patrimônio total: R$%.2f\n", management.exibirPatrimonioTotal());
+        System.out.printf("Patrimônio total (Saldo + Investimentos): R$%.2f\n", management.exibirPatrimonioTotal());
         System.out.println();
 
         management.exibirTransacoes();

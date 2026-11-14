@@ -14,20 +14,20 @@ public class Investimento {
     public Investimento() {
     }
 
-    public Investimento(String nome, double valorAplicado, double porcentagem, LocalDate data) {
-        this.nome = nome;
+    public Investimento(double valorAplicado, LocalDate data) {
+        //this.nome = nome;
         this.valorAplicado = valorAplicado;
-        this.porcentagem = porcentagem;
+        //this.porcentagem = porcentagem;
         this.data = data;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+//    public String getNome() {
+//        return nome;
+//    }
+//
+//    public void setNome(String nome) {
+//        this.nome = nome;
+//    }
 
     public double getValorAplicado() {
         return valorAplicado;
@@ -37,13 +37,13 @@ public class Investimento {
         this.valorAplicado = valorAplicado;
     }
 
-    public double getPorcentagem() {
-        return porcentagem;
-    }
-
-    public void setPorcentagem(double porcentagem) {
-        this.porcentagem = porcentagem;
-    }
+//    public double getPorcentagem() {
+//        return porcentagem;
+//    }
+//
+//    public void setPorcentagem(double porcentagem) {
+//        this.porcentagem = porcentagem;
+//    }
 
     public LocalDate getData() {
         return data;
@@ -62,9 +62,7 @@ public class Investimento {
 
     @Override
     public String toString() {
-        return "Nome do investimento: " + nome +
-                String.format(", valor aplicado: R$%.2f", valorAplicado) +
-                String.format(", previsão em um ano: R$%.2f", previsaoInvestimento()) +
+        return String.format("Valor aplicado em investimentos: R$%.2f", valorAplicado) +
                 ", data do aporte: " + data.format(DTF);
     }
 
